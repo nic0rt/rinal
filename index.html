@@ -1,525 +1,1293 @@
 <!doctype html>
 <html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RINAL — премиальная мебель на заказ в Ташкенте</title>
-<meta name="description" content="Полное меблирование квартир под ключ: кухни, гардеробные, прихожие, межкомнатные двери. Собственное производство в Ташкенте. Фурнитура Hettich, натуральный шпон дуба, кварцевые столешницы.">
-<meta name="robots" content="noindex">
-<meta property="og:title" content="RINAL — премиальная мебель на заказ в Ташкенте">
-<meta property="og:description" content="Меблируем квартиру целиком — от прихожей до гардеробной. Собственное производство.">
-<meta property="og:image" content="img/og.jpg">
-<meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    /* зелёный — с логотипа RINAL; акцент — тёплый брасс (насыщеннее бежевого) */
-    --green:#105542; --green-d:#0B3D2F; --paper:#F7F5F1; --paper-2:#EFEBE4;
-    --ink:#1A1A18; --muted:#6B6B63; --beige:#B0803C; --gold:#E4C89A; --terra:#9C5F43; --line:#DDD8CF;
-    --serif:'Cormorant Garamond',Georgia,serif;
-    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);background:var(--paper);color:var(--ink);
-       font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
-  img{display:block;max-width:100%;height:auto}
-  a{color:inherit}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12;letter-spacing:-.01em}
-
-  /* ---------- HERO ---------- */
-  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;
-        justify-content:space-between;color:#fff;overflow:hidden;background:var(--green-d)}
-  .hero__pic{position:absolute;inset:0;z-index:0}
-  .hero__pic img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
-  .hero__veil{position:absolute;inset:0;z-index:1;
-    background:linear-gradient(180deg,rgba(11,61,47,.74) 0%,rgba(11,61,47,.20) 32%,
-               rgba(11,61,47,.55) 68%,rgba(11,61,47,.94) 100%)}
-  .brand,.hero__body{position:relative;z-index:2}
-
-  .brand{display:flex;align-items:center;gap:13px;padding:26px 24px}
-  .brand img{width:44px;height:44px;flex:none}
-  .brand__name{font-family:var(--serif);font-size:23px;letter-spacing:.20em;line-height:1}
-  .brand__sub{font-size:8.5px;letter-spacing:.42em;opacity:.7;margin-top:5px}
-
-  .hero__body{padding:0 24px 46px;max-width:760px}
-  .eyebrow{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
-           color:rgba(255,255,255,.72);margin-bottom:20px}
-  .hero h1{font-size:clamp(2.4rem,8.2vw,4.3rem);margin-bottom:22px}
-  .hero h1 em{font-style:italic;color:var(--gold)}
-  .hero__sub{font-size:clamp(1rem,3.6vw,1.17rem);color:rgba(255,255,255,.86);
-             max-width:33em;margin-bottom:34px}
-
-  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
-       min-height:54px;padding:0 30px;border-radius:2px;font-size:15.5px;font-weight:500;
-       text-decoration:none;transition:.2s;border:1px solid transparent;cursor:pointer}
-  .btn--p{background:var(--beige);color:#241708;border-color:var(--beige)}
-  .btn--p:hover{background:#C4934A;border-color:#C4934A}
-  .btn--g{border-color:rgba(255,255,255,.42);color:#fff}
-  .btn--g:hover{background:rgba(255,255,255,.1);border-color:#fff}
-
-  /* ---------- SECTIONS ---------- */
-  section{padding:clamp(64px,10vw,110px) 0}
-  .lead{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
-        color:var(--terra);margin-bottom:18px}
-  h2{font-size:clamp(1.95rem,5.2vw,3rem);margin-bottom:20px;max-width:19em}
-  .sub{color:var(--muted);max-width:40em;font-size:16.5px}
-
-  .rooms{display:grid;grid-template-columns:repeat(3,1fr);
-         gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px}
-  @media(max-width:760px){.rooms{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:440px){.rooms{grid-template-columns:1fr}}
-  .room{background:var(--paper);padding:30px 26px}
-  .room h3{font-size:1.35rem;margin-bottom:7px}
-  .room p{font-size:14.5px;color:var(--muted);line-height:1.55}
-
-  /* ---------- ИМЕННОЙ ПРОЕКТ ---------- */
-  .case{background:var(--paper-2)}
-  .case__grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px}
-  @media(max-width:700px){.case__grid{grid-template-columns:1fr}}
-  .case__grid figure{margin:0;background:#fff;padding:12px 12px 16px;
-                     box-shadow:0 1px 2px rgba(26,26,24,.06)}
-  .case__grid img{width:100%}
-  .case__grid figcaption{font-size:13px;color:var(--muted);letter-spacing:.05em;
-                         padding-top:12px;text-align:center}
-
-  /* ---------- ДОСЬЕ: их тексты ---------- */
-  .dossier .item{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4.5vw,60px);
-                 align-items:center;padding:clamp(34px,5vw,54px) 0;
-                 border-top:1px solid var(--line)}
-  .dossier .item:first-of-type{border-top:0}
-  .dossier .item:nth-child(even){direction:rtl}
-  .dossier .item>*{direction:ltr}
-  @media(max-width:700px){.dossier .item{grid-template-columns:1fr}}
-  .dossier figure{margin:0;background:#fff;padding:12px;
-                  box-shadow:0 1px 2px rgba(26,26,24,.06)}
-  .dossier h3{font-style:italic;font-size:clamp(1.7rem,4.2vw,2.3rem);
-              color:var(--terra);margin-bottom:12px}
-  .dossier h3::after{content:" —"}
-  .dossier p{color:var(--ink);font-size:16.5px;max-width:30em}
-  .dossier .src{margin-top:14px;font-size:11.5px;letter-spacing:.18em;
-                text-transform:uppercase;color:var(--muted)}
-
-  /* ---------- WORKS ---------- */
-  .works{background:var(--paper-2)}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));
-        gap:14px;margin-top:44px}
-  .shot{position:relative;overflow:hidden;background:var(--line);aspect-ratio:3/4}
-  .shot img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
-  .shot:hover img{transform:scale(1.035)}
-  .shot__tag{position:absolute;left:0;bottom:0;right:0;padding:36px 20px 16px;color:#fff;
-    font-size:14px;letter-spacing:.04em;
-    background:linear-gradient(180deg,transparent,rgba(11,61,47,.86))}
-
-  /* ---------- MATERIALS ---------- */
-  .mats{background:var(--green);color:#fff}
-  .mats .lead{color:var(--gold)}
-  .mats .sub{color:rgba(255,255,255,.72)}
-  .mats__grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,5vw,64px);
-              align-items:center}
-  @media(max-width:820px){.mats__grid{grid-template-columns:1fr}}
-  .mlist{margin-top:36px;border-top:1px solid rgba(255,255,255,.17)}
-  .mlist div{display:flex;justify-content:space-between;gap:22px;padding:17px 0;
-             border-bottom:1px solid rgba(255,255,255,.17);font-size:15.5px}
-  .mlist span:first-child{color:rgba(255,255,255,.62)}
-  .mlist span:last-child{text-align:right}
-  .mats__pic{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .mats__pic img{aspect-ratio:3/4;object-fit:cover;width:100%}
-
-  /* ---------- PROCESS ---------- */
-  .steps{counter-reset:s;margin-top:44px;
-         display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:30px}
-  .step{counter-increment:s;padding-top:22px;border-top:2px solid var(--green)}
-  .step::before{content:"0" counter(s);font-family:var(--serif);font-size:2.1rem;
-                color:var(--terra);display:block;line-height:1;margin-bottom:12px}
-  .step h3{font-size:1.18rem;margin-bottom:6px;font-family:var(--sans);font-weight:600}
-  .step p{font-size:14.5px;color:var(--muted);line-height:1.55}
-
-  /* ---------- CONTACT ---------- */
-  .contact{background:var(--green-d);color:#fff}
-  .contact h2{max-width:14em}
-  .contact .lead{color:var(--gold)}
-  .contact .sub{color:rgba(255,255,255,.72);margin-bottom:36px}
-  .cinfo{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-         gap:30px;margin-top:56px;padding-top:36px;border-top:1px solid rgba(255,255,255,.16)}
-  .cinfo h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-            color:rgba(255,255,255,.5);margin-bottom:9px;font-weight:500}
-  .cinfo a,.cinfo p{font-size:16.5px;text-decoration:none;line-height:1.5}
-  .cinfo a:hover{color:var(--gold)}
-
-  footer{background:var(--green-d);color:rgba(255,255,255,.36);font-size:13px;
-         padding:26px 0 34px;border-top:1px solid rgba(255,255,255,.1)}
-  .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-  .foot img{width:30px;height:30px;opacity:.55}
-
-  /* ---------- ДО/ПОСЛЕ: scroll-driven wipe ---------- */
-  .ba{background:var(--green-d);color:#fff;padding:0}
-  .ba__head{padding:clamp(64px,10vw,110px) 24px clamp(34px,5vw,54px)}
-  .ba__head .lead{color:var(--gold)}
-  .ba__head h2{color:#fff}
-  .ba__head .sub{color:rgba(255,255,255,.72)}
-  .ba-stage{height:210vh;position:relative}
-  .ba-pin{position:sticky;top:0;height:100svh;overflow:hidden;background:#0B3D2F;
-          display:flex;align-items:center;justify-content:center}
-  /* фото в нативных пропорциях 688×768, без растяжки на весь экран */
-  .ba-frame{position:relative;width:min(90vw,600px,calc((100svh - 150px)*.8958));
-            aspect-ratio:688/768;overflow:hidden;border-radius:6px;
-            box-shadow:0 30px 90px rgba(0,0,0,.5);outline:1px solid rgba(228,200,154,.18)}
-  .ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-  .ba-before{transform:scale(1.04);will-change:transform}
-  .ba-after-wrap{position:absolute;inset:0;clip-path:inset(0 0 0 100%);will-change:clip-path}
-  .ba-after-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .ba-line{position:absolute;top:0;bottom:0;left:100%;width:2px;background:var(--gold);
-           box-shadow:0 0 18px rgba(228,200,154,.55);z-index:3}
-  .ba-tag{position:absolute;bottom:16px;z-index:4;font-size:11px;letter-spacing:.2em;
-          text-transform:uppercase;padding:8px 13px;border-radius:2px;transition:opacity .3s;white-space:nowrap}
-  .ba-tag--b{left:14px;background:rgba(11,61,47,.78);color:rgba(255,255,255,.85);backdrop-filter:blur(6px)}
-  .ba-tag--a{right:14px;background:var(--beige);color:#241708}
-  @media(max-width:480px){
-    .ba-tag{font-size:9.5px;letter-spacing:.12em;padding:7px 9px;bottom:12px}
-    .ba-tag--b{left:10px}
-    .ba-tag--a{right:10px}
-  }
-  .ba-hint{position:absolute;top:22px;left:50%;transform:translateX(-50%);z-index:4;
-           font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.75);
-           background:rgba(11,61,47,.55);padding:8px 15px;border-radius:2px;backdrop-filter:blur(6px);
-           transition:opacity .4s;white-space:nowrap}
-  @media (prefers-reduced-motion:reduce){
-    .ba-stage{height:auto}
-    .ba-pin{position:relative;height:auto;padding:56px 0}
-    .ba-after-wrap{clip-path:inset(0 0 0 50%)}
-    .ba-line{left:50%}
-    .ba-before{transform:none}
-  }
-
-  /* один сдержанный эффект */
-  .rise{opacity:0;transform:translateY(22px);
-        transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
-  .rise.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){
-    .rise{opacity:1;transform:none;transition:none}
-    .shot img{transition:none}
-    html{scroll-behavior:auto}
-  }
-  @media(max-width:420px){.btn{width:100%}}
-
-  /* десктоп: hero в две колонки, отдельный кроп фото */
-  @media(min-width:900px){
-    .hero{display:grid;grid-template-columns:1.02fr .98fr;grid-template-rows:auto 1fr;
-          background:var(--green-d)}
-    .hero__pic{position:relative;grid-column:2;grid-row:1/3}
-    .hero__pic img{object-position:50% 50%}
-    .hero__veil{background:linear-gradient(90deg,rgba(11,61,47,0) 55%,rgba(11,61,47,.35) 100%),
-                linear-gradient(180deg,rgba(11,61,47,.3),rgba(11,61,47,.3));
-                grid-column:2;grid-row:1/3;position:relative}
-    .brand{grid-column:1;grid-row:1;align-self:start}
-    .hero__body{grid-column:1;grid-row:2;align-self:center;
-                padding:0 clamp(30px,4vw,64px) 8vh clamp(24px,3.4vw,56px);max-width:none}
-    .hero h1{font-size:clamp(2.6rem,3.9vw,3.9rem)}
-  }
-</style>
-</head>
-<body>
-
-<header class="hero">
-  <picture class="hero__pic">
-    <source media="(min-width:900px)" srcset="img/hero-wide.webp" width="980" height="1134">
-    <img src="img/hero.webp" alt="Гостиная с мебелью RINAL: тумба из белого дуба со встроенным биокамином" fetchpriority="high" width="1000" height="1778">
-  </picture>
-  <div class="hero__veil"></div>
-
-  <div class="brand">
-    <img src="img/logo-mark.png" alt="Монограмма RINAL" width="44" height="44">
-    <div>
-      <div class="brand__name">RINAL</div>
-      <div class="brand__sub">FURNITURE</div>
-    </div>
-  </div>
-
-  <div class="hero__body">
-    <div class="eyebrow">Ташкент · собственное производство</div>
-    <h1>Меблируем квартиру <em>целиком</em> — от прихожей до гардеробной</h1>
-    <p class="hero__sub">Кухни, гардеробные, стеновые панели, межкомнатные двери. Один подрядчик
-      на весь проект: замер, изготовление и монтаж — наши.</p>
-    <div class="cta-row">
-      <a class="btn btn--p" href="https://t.me/rinalmebel">Обсудить проект в Telegram</a>
-      <a class="btn btn--g" href="tel:+998974005060">+998 97 400 50 60</a>
-    </div>
-  </div>
-</header>
-
-<section>
-  <div class="wrap">
-    <div class="rise">
-      <div class="lead">Что делаем</div>
-      <h2>Проект под ключ, а не отдельная кухня</h2>
-      <p class="sub">Работаем и напрямую с владельцами, и с архитектурными бюро. В проекте
-        полного меблирования квартиры изготавливаем всё — в едином материале и с единой
-        геометрией, чтобы комнаты не выглядели собранными у разных мастеров.</p>
-    </div>
-    <div class="rooms rise">
-      <div class="room"><h3>Прихожая</h3><p>Подвесные тумбы, шкафы для одежды, зеркала с подсветкой, стеновые панели</p></div>
-      <div class="room"><h3>Кухня</h3><p>В том числе с островом и для квартир-студий. Кварцевые столешницы</p></div>
-      <div class="room"><h3>Гостиная</h3><p>ТВ-зоны, стеновые панели, тумбы под биокамин, книжные секции</p></div>
-      <div class="room"><h3>Спальня и детская</h3><p>Гардеробные, прикроватные тумбы, косметические столики, изголовья</p></div>
-      <div class="room"><h3>Двери</h3><p>Межкомнатные двери в шпоне — в один тон с мебелью проекта</p></div>
-      <div class="room"><h3>Коммерческие интерьеры</h3><p>Мебель для салонов и клиентских зон по проекту дизайнера</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="ba" id="ba">
-  <div class="ba__head wrap">
-    <div class="rise">
-      <div class="lead">До и после</div>
-      <h2>Из бетонной коробки — в готовую квартиру</h2>
-      <p class="sub">Листайте вниз: объект до начала работ — и он же после монтажа мебели RINAL.</p>
-    </div>
-  </div>
-
-  <div class="ba-stage" data-ba>
-    <div class="ba-pin">
-      <span class="ba-hint">Листайте вниз ↓</span>
-      <div class="ba-frame">
-        <img class="ba-img ba-before" src="img/ba-kitchen-before.webp" alt="Кухня до: черновая отделка, бетон и разводка коммуникаций" loading="lazy" width="688" height="768">
-        <div class="ba-after-wrap">
-          <img src="img/ba-kitchen-after.webp" alt="Кухня после: остров с кварцевой столешницей и фасады из шпона" loading="lazy" width="688" height="768">
-        </div>
-        <div class="ba-line"></div>
-        <span class="ba-tag ba-tag--b">До · черновая</span>
-        <span class="ba-tag ba-tag--a">После · кухня RINAL</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="ba-stage" data-ba>
-    <div class="ba-pin">
-      <div class="ba-frame">
-        <img class="ba-img ba-before" src="img/ba-living-before.webp" alt="Гостиная до: бетонные стены и черновой пол" loading="lazy" width="688" height="768">
-        <div class="ba-after-wrap">
-          <img src="img/ba-living-after.webp" alt="Гостиная после: ТВ-зона и кухня-гостиная в шпоне" loading="lazy" width="688" height="768">
-        </div>
-        <div class="ba-line"></div>
-        <span class="ba-tag ba-tag--b">До · черновая</span>
-        <span class="ba-tag ba-tag--a">После · гостиная RINAL</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="case">
-  <div class="wrap">
-    <div class="rise">
-      <div class="lead">Реализованный проект</div>
-      <h2>Детская комната девочки</h2>
-      <p class="sub">Мягкая кровать с изголовьем-ракушкой, арочный портал и туалетный столик —
-        всё изготовлено в едином ансамбле под интерьер комнаты.</p>
-    </div>
-    <div class="case__grid rise">
-      <figure>
-        <img src="img/fb-arch-diptych.webp" alt="Арочный портал в детской: визуализация и реализация" loading="lazy" width="444" height="518">
-        <figcaption>Арочный портал — визуализация и реализация</figcaption>
-      </figure>
-      <figure>
-        <img src="img/fb-deer-bed.webp" alt="Кровать с мягким изголовьем-ракушкой в детской комнате" loading="lazy" width="472" height="540">
-        <figcaption>Реализованный проект Дарьи Хомич · детская комната девочки</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section class="dossier">
-  <div class="wrap">
-    <div class="rise">
-      <div class="lead">Из проектов</div>
-      <h2>Изделия, которые собирают интерьер</h2>
-    </div>
-
-    <div class="item rise">
-      <figure><img src="img/fb-table.webp" alt="Обеденный стол из шпона дуба с цилиндрическим изножьем" loading="lazy" width="444" height="386"></figure>
-      <div>
-        <h3>обеденный стол</h3>
-        <p>Натуральный шпон дуба, овальная столешница и цилиндрическое изножье создают образ,
-           который становится центром притяжения в пространстве.</p>
-        <div class="src">Изделия из шпона</div>
-      </div>
-    </div>
-
-    <div class="item rise">
-      <figure><img src="img/fb-console.webp" alt="Консоль из натурального шпона дуба со скрытым выдвижным ящиком" loading="lazy" width="444" height="368"></figure>
-      <div>
-        <h3>консоль</h3>
-        <p>Из натурального шпона дуба, с радиусными линиями и скрытым выдвижным ящиком —
-           изделие, где форма и детали сливаются в единый, цельный образ.</p>
-        <div class="src">Изделия из шпона</div>
-      </div>
-    </div>
-
-    <div class="item rise">
-      <figure><img src="img/fb-garderob-glass.webp" alt="Гардеробная: отсеки для аксессуаров под стеклом" loading="lazy" width="472" height="350"></figure>
-      <div>
-        <h3>гардеробная</h3>
-        <p>Главная задача мебели здесь — эргономичность и максимальная вместительность без потери
-           эстетики. Продумано всё: от просторных секций для крупных вещей до отдельных отсеков
-           для аксессуаров.</p>
-        <div class="src">Полное меблирование квартиры</div>
-      </div>
-    </div>
-
-    <div class="item rise">
-      <figure><img src="img/fb-hallway.webp" alt="Прихожая: шкаф с гладкими фасадами и мягкий пуф" loading="lazy" width="472" height="328"></figure>
-      <div>
-        <h3>прихожая</h3>
-        <p>Визитная карточка вашего дома — именно она формирует первое впечатление. Лаконичный
-           шкаф с гладкими фасадами и выверенная геометрия создают ощущение порядка, стиля и
-           собранности с первых шагов.</p>
-        <div class="src">Полное меблирование квартиры</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="works">
-  <div class="wrap">
-    <div class="rise">
-      <div class="lead">Работы</div>
-      <h2>Ещё из реализованных проектов</h2>
-    </div>
-    <div class="grid rise">
-      <figure class="shot"><img src="img/kitchen-display.webp" alt="Кухня с подсвеченной витриной из шпона" loading="lazy" width="620" height="1102">
-        <figcaption class="shot__tag">Кухня с витриной в шпоне</figcaption></figure>
-      <figure class="shot"><img src="img/fb-garderob.webp" alt="Гардеробная с фасадами до потолка" loading="lazy" width="436" height="480">
-        <figcaption class="shot__tag">Гардеробная</figcaption></figure>
-      <figure class="shot"><img src="img/doors.webp" alt="Межкомнатные двери в шпоне" loading="lazy" width="620" height="1102">
-        <figcaption class="shot__tag">Межкомнатные двери</figcaption></figure>
-      <figure class="shot"><img src="img/fb-tumba.webp" alt="Тумба в тёмном дубе с рельефными фасадами" loading="lazy" width="444" height="528">
-        <figcaption class="shot__tag">Тумба, тёмный дуб</figcaption></figure>
-      <figure class="shot"><img src="img/kitchen-grey.webp" alt="Кухня в графитовом цвете" loading="lazy" width="620" height="1102">
-        <figcaption class="shot__tag">Кухня, графит</figcaption></figure>
-      <figure class="shot"><img src="img/lounge.webp" alt="Мебель для клиентской зоны" loading="lazy" width="620" height="1102">
-        <figcaption class="shot__tag">Коммерческий интерьер</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section class="mats">
-  <div class="wrap">
-    <div class="mats__grid">
-      <div class="rise">
-        <div class="lead">Материалы</div>
-        <h2>Мебель живёт столько, сколько живёт её фурнитура</h2>
-        <p class="sub">Мы не экономим на том, что нельзя увидеть на фото, но что открывается
-          и закрывается каждый день десять лет подряд.</p>
-        <div class="mlist">
-          <div><span>Фурнитура</span><span>Hettich, Германия</span></div>
-          <div><span>Фасады</span><span>Натуральный шпон дуба</span></div>
-          <div><span>Внутреннее наполнение</span><span>ЛДСП, белый ЛМДФ</span></div>
-          <div><span>Столешницы</span><span>Кварцевый агломерат</span></div>
-        </div>
-      </div>
-      <div class="mats__pic rise">
-        <img src="img/detail-marble.webp" alt="Столешница из натурального камня и фрезерованный шпон" loading="lazy" width="620" height="1102">
-        <img src="img/detail-veneer.webp" alt="Образцы шпона разных тонов" loading="lazy" width="620" height="1102">
-        <img src="img/detail-samples.webp" alt="Образцы тканей и чертежи проекта" loading="lazy" width="620" height="1102">
-        <img src="img/detail-label.webp" alt="Фирменная метка RINAL на изделии" loading="lazy" width="620" height="1102">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="rise">
-      <div class="lead">Как работаем</div>
-      <h2>От первого сообщения до собранной квартиры</h2>
-    </div>
-    <div class="steps rise">
-      <div class="step"><h3>Консультация</h3><p>Обсуждаем задачу, материалы и сроки. Можно с готовым дизайн-проектом, можно без</p></div>
-      <div class="step"><h3>Выезд на замер</h3><p>Команда приезжает на объект и снимает точные размеры</p></div>
-      <div class="step"><h3>Просчёт стоимости</h3><p>Считаем проект по составу и материалам, фиксируем смету</p></div>
-      <div class="step"><h3>Производство и монтаж</h3><p>Изготавливаем на своём производстве и собираем на объекте</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="rise">
-      <div class="lead">Контакты</div>
-      <h2>Расскажите о проекте</h2>
-      <p class="sub">Напишите в Telegram или позвоните — ответим, сориентируем по стоимости
-        и договоримся о замере.</p>
-      <div class="cta-row">
-        <a class="btn btn--p" href="https://t.me/rinalmebel">Написать в Telegram</a>
-        <a class="btn btn--g" href="tel:+998974005060">Позвонить</a>
-      </div>
-      <div class="cinfo">
-        <div><h4>Телефон</h4><a href="tel:+998974005060">+998 97 400 50 60</a></div>
-        <div><h4>Telegram / Instagram</h4><a href="https://t.me/rinalmebel">@rinalmebel</a></div>
-        <div><h4>Почта</h4><a href="mailto:rinalmebel@gmail.com">rinalmebel@gmail.com</a></div>
-        <div><h4>Производство</h4><p>Ташкент, Сергелийский район,<br>2-й тупик Олтинводий, 60<br>Пн–сб 9:00–18:00</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap foot">
-    <span>RINAL FURNITURE · Ташкент</span>
-    <img src="img/logo-mark.png" alt="" width="30" height="30">
-    <span>Мебель на заказ и межкомнатные двери</span>
-  </div>
-</footer>
-
-<script>
-  const io = new IntersectionObserver((es) => {
-    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('.rise').forEach(el => io.observe(el));
-
-  // scroll-driven до/после: wipe управляется прокруткой
-  const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if (!reduce) {
-    const stages = [...document.querySelectorAll('[data-ba]')].map(stage => ({
-      stage,
-      wrap: stage.querySelector('.ba-after-wrap'),
-      line: stage.querySelector('.ba-line'),
-      before: stage.querySelector('.ba-before'),
-      hint: stage.querySelector('.ba-hint'),
-      tagB: stage.querySelector('.ba-tag--b'),
-      tagA: stage.querySelector('.ba-tag--a'),
-    }));
-    let ticking = false;
-    const ease = x => x < .5 ? 2*x*x : 1 - Math.pow(-2*x + 2, 2) / 2; // easeInOutQuad
-    const update = () => {
-      ticking = false;
-      const vh = innerHeight;
-      for (const s of stages) {
-        const r = s.stage.getBoundingClientRect();
-        const total = r.height - vh;
-        if (total <= 0) continue;
-        const raw = Math.min(1, Math.max(0, -r.top / total));
-        const p = ease(raw);
-        const left = (1 - p) * 100;
-        s.wrap.style.clipPath = `inset(0 0 0 ${left}%)`;
-        s.line.style.left = left + '%';
-        s.before.style.transform = `scale(${1.06 - 0.06 * p})`;
-        s.tagB.style.opacity = p > 0.85 ? 0 : 1;
-        s.tagA.style.opacity = p > 0.12 ? 1 : 0;
-        if (s.hint) s.hint.style.opacity = raw > 0.06 ? 0 : 1;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RINAL — премиальная мебель на заказ в Ташкенте</title>
+    <meta
+      name="description"
+      content="Полное меблирование квартир под ключ: кухни, гардеробные, прихожие, межкомнатные двери. Собственное производство в Ташкенте. Фурнитура Hettich, натуральный шпон дуба, кварцевые столешницы."
+    />
+    <meta name="robots" content="noindex" />
+    <meta property="og:title" content="RINAL — премиальная мебель на заказ в Ташкенте" />
+    <meta
+      property="og:description"
+      content="Меблируем квартиру целиком — от прихожей до гардеробной. Собственное производство."
+    />
+    <meta property="og:image" content="img/og.jpg" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* зелёный — с логотипа RINAL; акцент — тёплый брасс (насыщеннее бежевого) */
+        --green: #105542;
+        --green-d: #0b3d2f;
+        --paper: #f7f5f1;
+        --paper-2: #efebe4;
+        --ink: #1a1a18;
+        --muted: #6b6b63;
+        --beige: #b0803c;
+        --gold: #e4c89a;
+        --terra: #9c5f43;
+        --line: #ddd8cf;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }
-    };
-    addEventListener('scroll', () => {
-      if (!ticking) { ticking = true; requestAnimationFrame(update); }
-    }, { passive: true });
-    addEventListener('resize', update, { passive: true });
-    update();
-  }
-</script>
-</body>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--sans);
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 17px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      a {
+        color: inherit;
+      }
+      .wrap {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--serif);
+        font-weight: 400;
+        line-height: 1.12;
+        letter-spacing: -0.01em;
+      }
+
+      /* ---------- HERO ---------- */
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: #fff;
+        overflow: hidden;
+        background: var(--green-d);
+      }
+      .hero__pic {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .hero__pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 42%;
+      }
+      .hero__veil {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(
+          180deg,
+          rgba(11, 61, 47, 0.74) 0%,
+          rgba(11, 61, 47, 0.2) 32%,
+          rgba(11, 61, 47, 0.55) 68%,
+          rgba(11, 61, 47, 0.94) 100%
+        );
+      }
+      .brand,
+      .hero__body {
+        position: relative;
+        z-index: 2;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        padding: 26px 24px;
+      }
+      .brand img {
+        width: 44px;
+        height: 44px;
+        flex: none;
+      }
+      .brand__name {
+        font-family: var(--serif);
+        font-size: 23px;
+        letter-spacing: 0.2em;
+        line-height: 1;
+      }
+      .brand__sub {
+        font-size: 8.5px;
+        letter-spacing: 0.42em;
+        opacity: 0.7;
+        margin-top: 5px;
+      }
+
+      .hero__body {
+        padding: 0 24px 46px;
+        max-width: 760px;
+      }
+      .eyebrow {
+        font-size: 11.5px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.72);
+        margin-bottom: 20px;
+      }
+      .hero h1 {
+        font-size: clamp(2.4rem, 8.2vw, 4.3rem);
+        margin-bottom: 22px;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .hero__sub {
+        font-size: clamp(1rem, 3.6vw, 1.17rem);
+        color: rgba(255, 255, 255, 0.86);
+        max-width: 33em;
+        margin-bottom: 34px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 54px;
+        padding: 0 30px;
+        border-radius: 2px;
+        font-size: 15.5px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: 0.2s;
+        border: 1px solid transparent;
+        cursor: pointer;
+      }
+      .btn--p {
+        background: var(--beige);
+        color: #241708;
+        border-color: var(--beige);
+      }
+      .btn--p:hover {
+        background: #c4934a;
+        border-color: #c4934a;
+      }
+      .btn--g {
+        border-color: rgba(255, 255, 255, 0.42);
+        color: #fff;
+      }
+      .btn--g:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #fff;
+      }
+
+      /* ---------- SECTIONS ---------- */
+      section {
+        padding: clamp(64px, 10vw, 110px) 0;
+      }
+      .lead {
+        font-size: 11.5px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--terra);
+        margin-bottom: 18px;
+      }
+      h2 {
+        font-size: clamp(1.95rem, 5.2vw, 3rem);
+        margin-bottom: 20px;
+        max-width: 19em;
+      }
+      .sub {
+        color: var(--muted);
+        max-width: 40em;
+        font-size: 16.5px;
+      }
+
+      .rooms {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+        margin-top: 44px;
+      }
+      @media (max-width: 760px) {
+        .rooms {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 440px) {
+        .rooms {
+          grid-template-columns: 1fr;
+        }
+      }
+      .room {
+        background: var(--paper);
+        padding: 30px 26px;
+      }
+      .room h3 {
+        font-size: 1.35rem;
+        margin-bottom: 7px;
+      }
+      .room p {
+        font-size: 14.5px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      /* ---------- ИМЕННОЙ ПРОЕКТ ---------- */
+      .case {
+        background: var(--paper-2);
+      }
+      .case__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 44px;
+      }
+      @media (max-width: 700px) {
+        .case__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .case__grid figure {
+        margin: 0;
+        background: #fff;
+        padding: 12px 12px 16px;
+        box-shadow: 0 1px 2px rgba(26, 26, 24, 0.06);
+      }
+      .case__grid img {
+        width: 100%;
+      }
+      .case__grid figcaption {
+        font-size: 13px;
+        color: var(--muted);
+        letter-spacing: 0.05em;
+        padding-top: 12px;
+        text-align: center;
+      }
+
+      /* ---------- ДОСЬЕ: их тексты ---------- */
+      .dossier .item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(26px, 4.5vw, 60px);
+        align-items: center;
+        padding: clamp(34px, 5vw, 54px) 0;
+        border-top: 1px solid var(--line);
+      }
+      .dossier .item:first-of-type {
+        border-top: 0;
+      }
+      .dossier .item:nth-child(even) {
+        direction: rtl;
+      }
+      .dossier .item > * {
+        direction: ltr;
+      }
+      @media (max-width: 700px) {
+        .dossier .item {
+          grid-template-columns: 1fr;
+        }
+      }
+      .dossier figure {
+        margin: 0;
+        background: #fff;
+        padding: 12px;
+        box-shadow: 0 1px 2px rgba(26, 26, 24, 0.06);
+      }
+      .dossier h3 {
+        font-style: italic;
+        font-size: clamp(1.7rem, 4.2vw, 2.3rem);
+        color: var(--terra);
+        margin-bottom: 12px;
+      }
+      .dossier h3::after {
+        content: " —";
+      }
+      .dossier p {
+        color: var(--ink);
+        font-size: 16.5px;
+        max-width: 30em;
+      }
+      .dossier .src {
+        margin-top: 14px;
+        font-size: 11.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ---------- WORKS ---------- */
+      .works {
+        background: var(--paper-2);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+        gap: 14px;
+        margin-top: 44px;
+      }
+      .shot {
+        position: relative;
+        overflow: hidden;
+        background: var(--line);
+        aspect-ratio: 3/4;
+      }
+      .shot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+      }
+      .shot:hover img {
+        transform: scale(1.035);
+      }
+      .shot__tag {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 36px 20px 16px;
+        color: #fff;
+        font-size: 14px;
+        letter-spacing: 0.04em;
+        background: linear-gradient(180deg, transparent, rgba(11, 61, 47, 0.86));
+      }
+
+      /* ---------- MATERIALS ---------- */
+      .mats {
+        background: var(--green);
+        color: #fff;
+      }
+      .mats .lead {
+        color: var(--gold);
+      }
+      .mats .sub {
+        color: rgba(255, 255, 255, 0.72);
+      }
+      .mats__grid {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: clamp(30px, 5vw, 64px);
+        align-items: center;
+      }
+      @media (max-width: 820px) {
+        .mats__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .mlist {
+        margin-top: 36px;
+        border-top: 1px solid rgba(255, 255, 255, 0.17);
+      }
+      .mlist div {
+        display: flex;
+        justify-content: space-between;
+        gap: 22px;
+        padding: 17px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.17);
+        font-size: 15.5px;
+      }
+      .mlist span:first-child {
+        color: rgba(255, 255, 255, 0.62);
+      }
+      .mlist span:last-child {
+        text-align: right;
+      }
+      .mats__pic {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .mats__pic img {
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      /* ---------- PROCESS ---------- */
+      .steps {
+        counter-reset: s;
+        margin-top: 44px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 30px;
+      }
+      .step {
+        counter-increment: s;
+        padding-top: 22px;
+        border-top: 2px solid var(--green);
+      }
+      .step::before {
+        content: "0" counter(s);
+        font-family: var(--serif);
+        font-size: 2.1rem;
+        color: var(--terra);
+        display: block;
+        line-height: 1;
+        margin-bottom: 12px;
+      }
+      .step h3 {
+        font-size: 1.18rem;
+        margin-bottom: 6px;
+        font-family: var(--sans);
+        font-weight: 600;
+      }
+      .step p {
+        font-size: 14.5px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      /* ---------- CONTACT ---------- */
+      .contact {
+        background: var(--green-d);
+        color: #fff;
+      }
+      .contact h2 {
+        max-width: 14em;
+      }
+      .contact .lead {
+        color: var(--gold);
+      }
+      .contact .sub {
+        color: rgba(255, 255, 255, 0.72);
+        margin-bottom: 36px;
+      }
+      .cinfo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 30px;
+        margin-top: 56px;
+        padding-top: 36px;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+      }
+      .cinfo h4 {
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 9px;
+        font-weight: 500;
+      }
+      .cinfo a,
+      .cinfo p {
+        font-size: 16.5px;
+        text-decoration: none;
+        line-height: 1.5;
+      }
+      .cinfo a:hover {
+        color: var(--gold);
+      }
+
+      footer {
+        background: var(--green-d);
+        color: rgba(255, 255, 255, 0.36);
+        font-size: 13px;
+        padding: 26px 0 34px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .foot img {
+        width: 30px;
+        height: 30px;
+        opacity: 0.55;
+      }
+
+      /* ---------- ДО/ПОСЛЕ: диптих «после» + врезка «до» с тап-свапом ---------- */
+      .ba {
+        background: var(--green-d);
+        color: #fff;
+        padding: clamp(72px, 9vw, 104px) 0 96px;
+      }
+      .ba__head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        gap: 32px;
+      }
+      .ba__head .lead {
+        color: var(--gold);
+      }
+      .ba__head h2 {
+        color: #fff;
+      }
+      .ba__head .sub {
+        color: rgba(255, 255, 255, 0.72);
+        max-width: 300px;
+      }
+      .ba__hint {
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-top: 10px;
+      }
+      .ba-duo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        margin-top: 48px;
+      }
+      .ba-pair {
+        margin: 0;
+      }
+      /* стаггер второй пары: margin, не transform — transform подерётся с .rise */
+      .ba-pair:nth-child(2) {
+        margin-top: 40px;
+      }
+      .ba-stagebox {
+        position: relative;
+        aspect-ratio: 688/768;
+        overflow: hidden;
+        border-radius: 6px;
+        outline: 1px solid rgba(228, 200, 154, 0.22);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      }
+      .ba-stagebox > img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.35s ease;
+      }
+      .ba-stagebox > .img-b {
+        opacity: 0;
+      }
+      .swapped .ba-stagebox > .img-b {
+        opacity: 1;
+      }
+      .swapped .ba-stagebox > .img-a {
+        opacity: 0;
+      }
+      /* врезка-«архивный снимок»: бежевое паспарту */
+      .ba-inset {
+        position: absolute;
+        left: 14px;
+        bottom: 14px;
+        width: 40%;
+        padding: 6px;
+        border: 0;
+        border-radius: 3px;
+        background: var(--paper);
+        cursor: pointer;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+        transition: transform 0.2s ease;
+      }
+      .ba-inset--r {
+        left: auto;
+        right: 14px;
+      }
+      .ba-inset:hover {
+        transform: translateY(-3px);
+      }
+      .ba-inset:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 3px;
+      }
+      .ba-inset__ph {
+        position: relative;
+        display: block;
+        aspect-ratio: 688/768;
+        overflow: hidden;
+        border-radius: 2px;
+      }
+      .ba-inset__ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.35s ease;
+      }
+      .ba-inset__ph .img-a {
+        opacity: 0;
+      }
+      .swapped .ba-inset__ph .img-a {
+        opacity: 1;
+      }
+      .swapped .ba-inset__ph .img-b {
+        opacity: 0;
+      }
+      .ba-pill {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        z-index: 2;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        padding: 6px 9px;
+        border-radius: 2px;
+        background: var(--beige);
+        color: #241708;
+        white-space: nowrap;
+      }
+      .ba-pill span {
+        transition: opacity 0.25s;
+      }
+      .ba-pill .t-a {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+      }
+      .swapped .ba-pill .t-b {
+        opacity: 0;
+      }
+      .swapped .ba-pill .t-a {
+        opacity: 1;
+      }
+      .ba-cap {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        margin-top: 16px;
+      }
+      .ba-cap b {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 20px;
+      }
+      .ba-cap i {
+        width: 28px;
+        height: 1px;
+        background: var(--gold);
+        align-self: center;
+      }
+      .ba-cap span {
+        font-size: 13.5px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      @media (max-width: 900px) {
+        .ba {
+          padding: 64px 0 72px;
+        }
+        .ba__head {
+          display: block;
+        }
+        .ba__head .sub {
+          max-width: none;
+          margin-top: 12px;
+        }
+        .ba-duo {
+          grid-template-columns: 1fr;
+          gap: 48px;
+          margin-top: 32px;
+        }
+        .ba-pair:nth-child(2) {
+          margin-top: 0;
+        }
+        .ba-inset {
+          width: 42%;
+          left: 10px;
+          bottom: 10px;
+          padding: 5px;
+        }
+        .ba-inset--r {
+          left: auto;
+          right: 10px;
+        }
+        .ba-pill {
+          font-size: 9.5px;
+          letter-spacing: 0.12em;
+          padding: 5px 8px;
+          left: 8px;
+          bottom: 8px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .ba-stagebox > img,
+        .ba-inset__ph img,
+        .ba-pill span,
+        .ba-inset {
+          transition: none;
+        }
+      }
+
+      /* один сдержанный эффект */
+      .rise {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s cubic-bezier(0.2, 0.7, 0.3, 1);
+      }
+      .rise.in {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .rise {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        .shot img {
+          transition: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+      @media (max-width: 420px) {
+        .btn {
+          width: 100%;
+        }
+      }
+
+      /* десктоп: hero в две колонки, отдельный кроп фото */
+      @media (min-width: 900px) {
+        .hero {
+          display: grid;
+          grid-template-columns: 1.02fr 0.98fr;
+          grid-template-rows: auto 1fr;
+          background: var(--green-d);
+        }
+        .hero__pic {
+          position: relative;
+          grid-column: 2;
+          grid-row: 1/3;
+        }
+        .hero__pic img {
+          object-position: 50% 50%;
+        }
+        .hero__veil {
+          background:
+            linear-gradient(90deg, rgba(11, 61, 47, 0) 55%, rgba(11, 61, 47, 0.35) 100%),
+            linear-gradient(180deg, rgba(11, 61, 47, 0.3), rgba(11, 61, 47, 0.3));
+          grid-column: 2;
+          grid-row: 1/3;
+          position: relative;
+        }
+        .brand {
+          grid-column: 1;
+          grid-row: 1;
+          align-self: start;
+        }
+        .hero__body {
+          grid-column: 1;
+          grid-row: 2;
+          align-self: center;
+          padding: 0 clamp(30px, 4vw, 64px) 8vh clamp(24px, 3.4vw, 56px);
+          max-width: none;
+        }
+        .hero h1 {
+          font-size: clamp(2.6rem, 3.9vw, 3.9rem);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <picture class="hero__pic">
+        <source media="(min-width:900px)" srcset="img/hero-wide.webp" width="980" height="1134" />
+        <img
+          src="img/hero.webp"
+          alt="Гостиная с мебелью RINAL: тумба из белого дуба со встроенным биокамином"
+          fetchpriority="high"
+          width="1000"
+          height="1778"
+        />
+      </picture>
+      <div class="hero__veil"></div>
+
+      <div class="brand">
+        <img src="img/logo-mark.png" alt="Монограмма RINAL" width="44" height="44" />
+        <div>
+          <div class="brand__name">RINAL</div>
+          <div class="brand__sub">FURNITURE</div>
+        </div>
+      </div>
+
+      <div class="hero__body">
+        <div class="eyebrow">Ташкент · собственное производство</div>
+        <h1>Меблируем квартиру <em>целиком</em> — от прихожей до гардеробной</h1>
+        <p class="hero__sub">
+          Кухни, гардеробные, стеновые панели, межкомнатные двери. Один подрядчик на весь проект: замер, изготовление и
+          монтаж — наши.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn--p" href="https://t.me/rinalmebel">Обсудить проект в Telegram</a>
+          <a class="btn btn--g" href="tel:+998974005060">+998 97 400 50 60</a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="wrap">
+        <div class="rise">
+          <div class="lead">Что делаем</div>
+          <h2>Проект под ключ, а не отдельная кухня</h2>
+          <p class="sub">
+            Работаем и напрямую с владельцами, и с архитектурными бюро. В проекте полного меблирования квартиры
+            изготавливаем всё — в едином материале и с единой геометрией, чтобы комнаты не выглядели собранными у разных
+            мастеров.
+          </p>
+        </div>
+        <div class="rooms rise">
+          <div class="room">
+            <h3>Прихожая</h3>
+            <p>Подвесные тумбы, шкафы для одежды, зеркала с подсветкой, стеновые панели</p>
+          </div>
+          <div class="room">
+            <h3>Кухня</h3>
+            <p>В том числе с островом и для квартир-студий. Кварцевые столешницы</p>
+          </div>
+          <div class="room">
+            <h3>Гостиная</h3>
+            <p>ТВ-зоны, стеновые панели, тумбы под биокамин, книжные секции</p>
+          </div>
+          <div class="room">
+            <h3>Спальня и детская</h3>
+            <p>Гардеробные, прикроватные тумбы, косметические столики, изголовья</p>
+          </div>
+          <div class="room">
+            <h3>Двери</h3>
+            <p>Межкомнатные двери в шпоне — в один тон с мебелью проекта</p>
+          </div>
+          <div class="room">
+            <h3>Коммерческие интерьеры</h3>
+            <p>Мебель для салонов и клиентских зон по проекту дизайнера</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ba" id="ba">
+      <div class="wrap">
+        <div class="ba__head rise">
+          <div>
+            <div class="lead">До и после</div>
+            <h2>Из бетонной коробки — в готовую квартиру</h2>
+          </div>
+          <div>
+            <p class="sub">Нажмите на кадр «до», чтобы сравнить.</p>
+            <div class="ba__hint">⇄ до / после</div>
+          </div>
+        </div>
+        <div class="ba-duo">
+          <figure class="ba-pair rise" data-pair>
+            <div class="ba-stagebox">
+              <img
+                class="img-a"
+                src="img/ba-kitchen-after.webp"
+                alt="Кухня после: остров с кварцевой столешницей и фасады из шпона"
+                loading="lazy"
+                width="688"
+                height="768"
+              />
+              <img
+                class="img-b"
+                src="img/ba-kitchen-before.webp"
+                alt="Кухня до: черновая отделка, бетон и разводка коммуникаций"
+                loading="lazy"
+                width="688"
+                height="768"
+              />
+              <button class="ba-inset" type="button" aria-pressed="false" aria-label="Показать объект до начала работ">
+                <span class="ba-inset__ph">
+                  <img class="img-b" src="img/ba-kitchen-before.webp" alt="" loading="lazy" width="688" height="768" />
+                  <img class="img-a" src="img/ba-kitchen-after.webp" alt="" loading="lazy" width="688" height="768" />
+                </span>
+                <span class="ba-pill"><span class="t-b">До ⇄</span><span class="t-a">После ⇄</span></span>
+              </button>
+            </div>
+            <figcaption class="ba-cap"><b>Кухня</b><i></i><span>черновая отделка → готовый интерьер</span></figcaption>
+          </figure>
+          <figure class="ba-pair rise" data-pair>
+            <div class="ba-stagebox">
+              <img
+                class="img-a"
+                src="img/ba-living-after.webp"
+                alt="Гостиная после: ТВ-зона и кухня-гостиная в шпоне"
+                loading="lazy"
+                width="688"
+                height="768"
+              />
+              <img
+                class="img-b"
+                src="img/ba-living-before.webp"
+                alt="Гостиная до: бетонные стены и черновой пол"
+                loading="lazy"
+                width="688"
+                height="768"
+              />
+              <button
+                class="ba-inset ba-inset--r"
+                type="button"
+                aria-pressed="false"
+                aria-label="Показать объект до начала работ"
+              >
+                <span class="ba-inset__ph">
+                  <img class="img-b" src="img/ba-living-before.webp" alt="" loading="lazy" width="688" height="768" />
+                  <img class="img-a" src="img/ba-living-after.webp" alt="" loading="lazy" width="688" height="768" />
+                </span>
+                <span class="ba-pill"><span class="t-b">До ⇄</span><span class="t-a">После ⇄</span></span>
+              </button>
+            </div>
+            <figcaption class="ba-cap">
+              <b>Гостиная</b><i></i><span>черновая отделка → готовый интерьер</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="case">
+      <div class="wrap">
+        <div class="rise">
+          <div class="lead">Реализованный проект</div>
+          <h2>Детская комната девочки</h2>
+          <p class="sub">
+            Мягкая кровать с изголовьем-ракушкой, арочный портал и туалетный столик — всё изготовлено в едином ансамбле
+            под интерьер комнаты.
+          </p>
+        </div>
+        <div class="case__grid rise">
+          <figure>
+            <img
+              src="img/fb-arch-diptych.webp"
+              alt="Арочный портал в детской: визуализация и реализация"
+              loading="lazy"
+              width="444"
+              height="518"
+            />
+            <figcaption>Арочный портал — визуализация и реализация</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="img/fb-deer-bed.webp"
+              alt="Кровать с мягким изголовьем-ракушкой в детской комнате"
+              loading="lazy"
+              width="472"
+              height="540"
+            />
+            <figcaption>Реализованный проект Дарьи Хомич · детская комната девочки</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="dossier">
+      <div class="wrap">
+        <div class="rise">
+          <div class="lead">Из проектов</div>
+          <h2>Изделия, которые собирают интерьер</h2>
+        </div>
+
+        <div class="item rise">
+          <figure>
+            <img
+              src="img/fb-table.webp"
+              alt="Обеденный стол из шпона дуба с цилиндрическим изножьем"
+              loading="lazy"
+              width="444"
+              height="386"
+            />
+          </figure>
+          <div>
+            <h3>обеденный стол</h3>
+            <p>
+              Натуральный шпон дуба, овальная столешница и цилиндрическое изножье создают образ, который становится
+              центром притяжения в пространстве.
+            </p>
+            <div class="src">Изделия из шпона</div>
+          </div>
+        </div>
+
+        <div class="item rise">
+          <figure>
+            <img
+              src="img/fb-console.webp"
+              alt="Консоль из натурального шпона дуба со скрытым выдвижным ящиком"
+              loading="lazy"
+              width="444"
+              height="368"
+            />
+          </figure>
+          <div>
+            <h3>консоль</h3>
+            <p>
+              Из натурального шпона дуба, с радиусными линиями и скрытым выдвижным ящиком — изделие, где форма и детали
+              сливаются в единый, цельный образ.
+            </p>
+            <div class="src">Изделия из шпона</div>
+          </div>
+        </div>
+
+        <div class="item rise">
+          <figure>
+            <img
+              src="img/fb-garderob-glass.webp"
+              alt="Гардеробная: отсеки для аксессуаров под стеклом"
+              loading="lazy"
+              width="472"
+              height="350"
+            />
+          </figure>
+          <div>
+            <h3>гардеробная</h3>
+            <p>
+              Главная задача мебели здесь — эргономичность и максимальная вместительность без потери эстетики. Продумано
+              всё: от просторных секций для крупных вещей до отдельных отсеков для аксессуаров.
+            </p>
+            <div class="src">Полное меблирование квартиры</div>
+          </div>
+        </div>
+
+        <div class="item rise">
+          <figure>
+            <img
+              src="img/fb-hallway.webp"
+              alt="Прихожая: шкаф с гладкими фасадами и мягкий пуф"
+              loading="lazy"
+              width="472"
+              height="328"
+            />
+          </figure>
+          <div>
+            <h3>прихожая</h3>
+            <p>
+              Визитная карточка вашего дома — именно она формирует первое впечатление. Лаконичный шкаф с гладкими
+              фасадами и выверенная геометрия создают ощущение порядка, стиля и собранности с первых шагов.
+            </p>
+            <div class="src">Полное меблирование квартиры</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="works">
+      <div class="wrap">
+        <div class="rise">
+          <div class="lead">Работы</div>
+          <h2>Ещё из реализованных проектов</h2>
+        </div>
+        <div class="grid rise">
+          <figure class="shot">
+            <img
+              src="img/kitchen-display.webp"
+              alt="Кухня с подсвеченной витриной из шпона"
+              loading="lazy"
+              width="620"
+              height="1102"
+            />
+            <figcaption class="shot__tag">Кухня с витриной в шпоне</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="img/fb-garderob.webp"
+              alt="Гардеробная с фасадами до потолка"
+              loading="lazy"
+              width="436"
+              height="480"
+            />
+            <figcaption class="shot__tag">Гардеробная</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="img/doors.webp" alt="Межкомнатные двери в шпоне" loading="lazy" width="620" height="1102" />
+            <figcaption class="shot__tag">Межкомнатные двери</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="img/fb-tumba.webp"
+              alt="Тумба в тёмном дубе с рельефными фасадами"
+              loading="lazy"
+              width="444"
+              height="528"
+            />
+            <figcaption class="shot__tag">Тумба, тёмный дуб</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="img/kitchen-grey.webp" alt="Кухня в графитовом цвете" loading="lazy" width="620" height="1102" />
+            <figcaption class="shot__tag">Кухня, графит</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="img/lounge.webp" alt="Мебель для клиентской зоны" loading="lazy" width="620" height="1102" />
+            <figcaption class="shot__tag">Коммерческий интерьер</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="mats">
+      <div class="wrap">
+        <div class="mats__grid">
+          <div class="rise">
+            <div class="lead">Материалы</div>
+            <h2>Мебель живёт столько, сколько живёт её фурнитура</h2>
+            <p class="sub">
+              Мы не экономим на том, что нельзя увидеть на фото, но что открывается и закрывается каждый день десять лет
+              подряд.
+            </p>
+            <div class="mlist">
+              <div><span>Фурнитура</span><span>Hettich, Германия</span></div>
+              <div><span>Фасады</span><span>Натуральный шпон дуба</span></div>
+              <div><span>Внутреннее наполнение</span><span>ЛДСП, белый ЛМДФ</span></div>
+              <div><span>Столешницы</span><span>Кварцевый агломерат</span></div>
+            </div>
+          </div>
+          <div class="mats__pic rise">
+            <img
+              src="img/detail-marble.webp"
+              alt="Столешница из натурального камня и фрезерованный шпон"
+              loading="lazy"
+              width="620"
+              height="1102"
+            />
+            <img
+              src="img/detail-veneer.webp"
+              alt="Образцы шпона разных тонов"
+              loading="lazy"
+              width="620"
+              height="1102"
+            />
+            <img
+              src="img/detail-samples.webp"
+              alt="Образцы тканей и чертежи проекта"
+              loading="lazy"
+              width="620"
+              height="1102"
+            />
+            <img
+              src="img/detail-label.webp"
+              alt="Фирменная метка RINAL на изделии"
+              loading="lazy"
+              width="620"
+              height="1102"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="rise">
+          <div class="lead">Как работаем</div>
+          <h2>От первого сообщения до собранной квартиры</h2>
+        </div>
+        <div class="steps rise">
+          <div class="step">
+            <h3>Консультация</h3>
+            <p>Обсуждаем задачу, материалы и сроки. Можно с готовым дизайн-проектом, можно без</p>
+          </div>
+          <div class="step">
+            <h3>Выезд на замер</h3>
+            <p>Команда приезжает на объект и снимает точные размеры</p>
+          </div>
+          <div class="step">
+            <h3>Просчёт стоимости</h3>
+            <p>Считаем проект по составу и материалам, фиксируем смету</p>
+          </div>
+          <div class="step">
+            <h3>Производство и монтаж</h3>
+            <p>Изготавливаем на своём производстве и собираем на объекте</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="rise">
+          <div class="lead">Контакты</div>
+          <h2>Расскажите о проекте</h2>
+          <p class="sub">
+            Напишите в Telegram или позвоните — ответим, сориентируем по стоимости и договоримся о замере.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn--p" href="https://t.me/rinalmebel">Написать в Telegram</a>
+            <a class="btn btn--g" href="tel:+998974005060">Позвонить</a>
+          </div>
+          <div class="cinfo">
+            <div>
+              <h4>Телефон</h4>
+              <a href="tel:+998974005060">+998 97 400 50 60</a>
+            </div>
+            <div>
+              <h4>Telegram / Instagram</h4>
+              <a href="https://t.me/rinalmebel">@rinalmebel</a>
+            </div>
+            <div>
+              <h4>Почта</h4>
+              <a href="mailto:rinalmebel@gmail.com">rinalmebel@gmail.com</a>
+            </div>
+            <div>
+              <h4>Производство</h4>
+              <p>Ташкент, Сергелийский район,<br />2-й тупик Олтинводий, 60<br />Пн–сб 9:00–18:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap foot">
+        <span>RINAL FURNITURE · Ташкент</span>
+        <img src="img/logo-mark.png" alt="" width="30" height="30" />
+        <span>Мебель на заказ и межкомнатные двери</span>
+      </div>
+    </footer>
+
+    <script>
+      const io = new IntersectionObserver(
+        (es) => {
+          es.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px" },
+      );
+      document.querySelectorAll(".rise").forEach((el) => io.observe(el));
+
+      // до/после: тап по врезке меняет кадры местами
+      document.querySelectorAll("[data-pair]").forEach((p) => {
+        const b = p.querySelector(".ba-inset");
+        b.addEventListener("click", () => {
+          const on = p.classList.toggle("swapped");
+          b.setAttribute("aria-pressed", on);
+          b.setAttribute("aria-label", on ? "Показать готовый интерьер" : "Показать объект до начала работ");
+        });
+      });
+    </script>
+  </body>
 </html>
