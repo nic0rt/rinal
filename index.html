@@ -163,25 +163,35 @@
   .ba__head .lead{color:var(--gold)}
   .ba__head h2{color:#fff}
   .ba__head .sub{color:rgba(255,255,255,.72)}
-  .ba-stage{height:240vh;position:relative}
-  .ba-pin{position:sticky;top:0;height:100svh;overflow:hidden;background:#0B3D2F}
+  .ba-stage{height:210vh;position:relative}
+  .ba-pin{position:sticky;top:0;height:100svh;overflow:hidden;background:#0B3D2F;
+          display:flex;align-items:center;justify-content:center}
+  /* фото в нативных пропорциях 688×768, без растяжки на весь экран */
+  .ba-frame{position:relative;width:min(90vw,600px,calc((100svh - 150px)*.8958));
+            aspect-ratio:688/768;overflow:hidden;border-radius:6px;
+            box-shadow:0 30px 90px rgba(0,0,0,.5);outline:1px solid rgba(228,200,154,.18)}
   .ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-  .ba-before{transform:scale(1.06);will-change:transform}
+  .ba-before{transform:scale(1.04);will-change:transform}
   .ba-after-wrap{position:absolute;inset:0;clip-path:inset(0 0 0 100%);will-change:clip-path}
   .ba-after-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .ba-line{position:absolute;top:0;bottom:0;left:100%;width:2px;background:var(--gold);
            box-shadow:0 0 18px rgba(228,200,154,.55);z-index:3}
-  .ba-tag{position:absolute;bottom:26px;z-index:4;font-size:11.5px;letter-spacing:.22em;
-          text-transform:uppercase;padding:9px 16px;border-radius:2px;transition:opacity .3s}
-  .ba-tag--b{left:22px;background:rgba(11,61,47,.78);color:rgba(255,255,255,.85);backdrop-filter:blur(6px)}
-  .ba-tag--a{right:22px;background:var(--beige);color:#241708}
-  .ba-hint{position:absolute;top:24px;left:50%;transform:translateX(-50%);z-index:4;
+  .ba-tag{position:absolute;bottom:16px;z-index:4;font-size:11px;letter-spacing:.2em;
+          text-transform:uppercase;padding:8px 13px;border-radius:2px;transition:opacity .3s;white-space:nowrap}
+  .ba-tag--b{left:14px;background:rgba(11,61,47,.78);color:rgba(255,255,255,.85);backdrop-filter:blur(6px)}
+  .ba-tag--a{right:14px;background:var(--beige);color:#241708}
+  @media(max-width:480px){
+    .ba-tag{font-size:9.5px;letter-spacing:.12em;padding:7px 9px;bottom:12px}
+    .ba-tag--b{left:10px}
+    .ba-tag--a{right:10px}
+  }
+  .ba-hint{position:absolute;top:22px;left:50%;transform:translateX(-50%);z-index:4;
            font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.75);
            background:rgba(11,61,47,.55);padding:8px 15px;border-radius:2px;backdrop-filter:blur(6px);
-           transition:opacity .4s}
+           transition:opacity .4s;white-space:nowrap}
   @media (prefers-reduced-motion:reduce){
     .ba-stage{height:auto}
-    .ba-pin{position:relative;height:72svh}
+    .ba-pin{position:relative;height:auto;padding:56px 0}
     .ba-after-wrap{clip-path:inset(0 0 0 50%)}
     .ba-line{left:50%}
     .ba-before{transform:none}
@@ -274,26 +284,30 @@
 
   <div class="ba-stage" data-ba>
     <div class="ba-pin">
-      <img class="ba-img ba-before" src="img/ba-kitchen-before.webp" alt="Кухня до: черновая отделка, бетон и разводка коммуникаций" loading="lazy" width="688" height="768">
-      <div class="ba-after-wrap">
-        <img src="img/ba-kitchen-after.webp" alt="Кухня после: остров с кварцевой столешницей и фасады из шпона" loading="lazy" width="688" height="768">
-      </div>
-      <div class="ba-line"></div>
       <span class="ba-hint">Листайте вниз ↓</span>
-      <span class="ba-tag ba-tag--b">До · черновая</span>
-      <span class="ba-tag ba-tag--a">После · кухня RINAL</span>
+      <div class="ba-frame">
+        <img class="ba-img ba-before" src="img/ba-kitchen-before.webp" alt="Кухня до: черновая отделка, бетон и разводка коммуникаций" loading="lazy" width="688" height="768">
+        <div class="ba-after-wrap">
+          <img src="img/ba-kitchen-after.webp" alt="Кухня после: остров с кварцевой столешницей и фасады из шпона" loading="lazy" width="688" height="768">
+        </div>
+        <div class="ba-line"></div>
+        <span class="ba-tag ba-tag--b">До · черновая</span>
+        <span class="ba-tag ba-tag--a">После · кухня RINAL</span>
+      </div>
     </div>
   </div>
 
   <div class="ba-stage" data-ba>
     <div class="ba-pin">
-      <img class="ba-img ba-before" src="img/ba-living-before.webp" alt="Гостиная до: бетонные стены и черновой пол" loading="lazy" width="688" height="768">
-      <div class="ba-after-wrap">
-        <img src="img/ba-living-after.webp" alt="Гостиная после: ТВ-зона и кухня-гостиная в шпоне" loading="lazy" width="688" height="768">
+      <div class="ba-frame">
+        <img class="ba-img ba-before" src="img/ba-living-before.webp" alt="Гостиная до: бетонные стены и черновой пол" loading="lazy" width="688" height="768">
+        <div class="ba-after-wrap">
+          <img src="img/ba-living-after.webp" alt="Гостиная после: ТВ-зона и кухня-гостиная в шпоне" loading="lazy" width="688" height="768">
+        </div>
+        <div class="ba-line"></div>
+        <span class="ba-tag ba-tag--b">До · черновая</span>
+        <span class="ba-tag ba-tag--a">После · гостиная RINAL</span>
       </div>
-      <div class="ba-line"></div>
-      <span class="ba-tag ba-tag--b">До · черновая</span>
-      <span class="ba-tag ba-tag--a">После · гостиная RINAL</span>
     </div>
   </div>
 </section>
